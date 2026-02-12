@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: miyolchy <miyolchy@student.42.fr>          +#+  +:+       +#+        */
+/*   By: anihamba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 17:54:20 by miyolchy          #+#    #+#             */
-/*   Updated: 2026/01/29 18:09:33 by miyolchy         ###   ########.fr       */
+/*   Updated: 2026/02/06 15:16:42 by anihamba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,8 @@
 int	main(void)
 {
 	t_game game;
-
-	init_mlx(&game);
-
+	t_map map;
 	
-	
-	mlx_loop(game.mlx);
-	write(1, "Makefile\n", 99);
-	return (0);
+	init_mlx(&game, &map);
+
 }
