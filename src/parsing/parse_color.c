@@ -43,7 +43,7 @@ int	parse_color(t_game *game, char *line, char *temp)
 	if (*line == 'F')
 		ret = parse_color_helper(line, game->floor_color);
 	if (*line == 'C')
-		ret = parse_color_helper(line, game->floor_color);
+		ret = parse_color_helper(line, game->ceiling_color);
 	if (ret == 1)
 	{
 		free(temp);

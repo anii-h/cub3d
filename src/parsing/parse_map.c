@@ -6,7 +6,7 @@
 /*   By: anihamba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 08:34:10 by anihamba          #+#    #+#             */
-/*   Updated: 2026/02/06 15:04:29 by anihamba         ###   ########.fr       */
+/*   Updated: 2026/02/12 23:09:19 by anihamba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,9 @@ int parse_map(t_game *game, const char *map_file)
 		} else if (*line == '1' || *line == '0' || *line == 'N' ||
 					*line == 'S' || *line == 'E' || *line == 'W')
 		{
-			if (parse_map_layout(game, temp) == 1)
+			if (parse_map_layout(game, line) == 1)
 				return (1);
+			free(temp);
 		} else
 		{
 			printf("Error: Invalid line in map file!\n");

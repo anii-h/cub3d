@@ -2,14 +2,12 @@
 
 int	parse_map_layout(t_game *game, char *line)
 {
-	static	t_mapnode	*head;
-	static	t_mapnode	*tail;
-	static	int			height;
-
-	head = NULL;
-	tail = NULL;
-	height = 0;
-	t_mapnode	*node = ft_malloc(sizeof(t_mapnode));
+	static t_mapnode	*head = NULL;
+	static t_mapnode	*tail = NULL;
+	static int			height = 0;
+	t_mapnode			*node;
+	
+	node = ft_malloc(sizeof(t_mapnode));
 	if (!node)
 	{
 		printf("Error: malloc failed!\n");
@@ -65,7 +63,7 @@ static int	fill_map(t_map *map)
 	}
 	while (current)
 	{
-		map->map[i] = ft_malloc(sizeof(char *) * (map->width + 1));
+		map->map[i] = ft_malloc(sizeof(char) * (map->width + 1));
 		if (!map->map[i])
 		{
 			printf("Error: malloc failed!\n");
