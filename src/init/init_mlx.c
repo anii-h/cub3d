@@ -9,7 +9,7 @@ int	init_mlx(t_game *game, t_map *map)
 	{
 		free_map(map);
 		printf("Error: mlx initialization failed!/n");
-		exit(1);
+		return (1);
 	}
 	game->mlx.win = mlx_new_window(game->mlx.mlx, WIN_WIDTH,
 		WIN_HEIGHT, "cub3d");
@@ -17,7 +17,7 @@ int	init_mlx(t_game *game, t_map *map)
 	{
 		free_map(map);
 		printf("Error: mlx window creation failed!/n");
-		exit(1);
+		return (1);
 	}
 	game->mlx.win_height = WIN_HEIGHT;
 	game->mlx.win_width = WIN_WIDTH;
@@ -30,14 +30,15 @@ int	render_img(t_game *game)
 	if(!game->mlx.render.img)
 	{
 		printf("Error: failed to create new image!\n");
-		return(1);
+		return (1);
 	}
 	game->mlx.render.img_data = mlx_get_data_addr(game->mlx.render.img, &game->mlx.render.bpp,
 			&game->mlx.render.line_length, &game->mlx.render.endian);
 	if(!game->mlx.render.img_data)
 	{
 		printf("Error: failed to get the image data address!\n");
-		return(1);
+		mlx_destroy_image(game->mlx.mlx, game->mlx.render.img);
+		return (1);
 	}
 	return (0);
 }
